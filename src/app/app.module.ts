@@ -8,14 +8,20 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {BusesDataService} from './services/buses-data.service';
+
+import { HttpClientModule} from '@angular/common/http';
+import { TestPage } from './pages/test/test.page';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,
+    TestPage],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [
     StatusBar,
     SplashScreen,
+    BusesDataService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
